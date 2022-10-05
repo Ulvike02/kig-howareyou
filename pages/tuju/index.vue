@@ -1,7 +1,20 @@
 <script setup>
 definePageMeta({ layout: "default" });
 
-const options = [
+const start = [
+  {
+    title: "Õnnelik",
+    fill: "red",
+    icon: "https://api.iconify.design/iconoir:3d-add-hole.svg",
+  },
+  {
+    title: "Elevil",
+    fill: "yellow",
+    icon: "https://api.iconify.design/iconoir:3d-add-hole.svg",
+  },
+];
+
+const up = [
   {
     title: "Õnnelik",
     fill: "#ffaaaa",
@@ -36,33 +49,29 @@ const options = [
     fill: "green",
   },
 ];
-
-const options2 = options
-  .map((o) => o.options || [{ title: "Some" }, { title: "Thing" }])
-  .flat();
-
-const options3 = options2
-  .map((o) => [{ title: "Some" }, { title: "Thing" }])
-  .flat();
-
-const selectedSector = $ref();
-const onSelect = (sector) => (selectedSector = sector);
 </script>
 
 <template>
-  <div class="flex items-center justify-center h-full">
+  <div class="">
     <div>
       <TestWheel>
         <TestSlices
-          @select="onSelect"
-          :options="options"
+          :options="start"
           :inner="50"
           :outer="150"
           :corner="5"
           :padding="2"
         />
       </TestWheel>
-      You selected {{ selectedSector?.title }}
+      <TestWheel>
+        <TestSlices
+          :options="up"
+          :inner="50"
+          :outer="150"
+          :corner="5"
+          :padding="2"
+        />
+      </TestWheel>
     </div>
   </div>
 </template>
