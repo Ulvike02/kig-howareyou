@@ -1,5 +1,5 @@
 <template>
-  <svg width="700" height="700" class="block">
-    <g transform="translate(350, 350)"><slot /></g>
+  <svg width="400" height="400" class="block">
+    <g transform="translate(200, 200)"><slot /></g>
   </svg>
 </template>

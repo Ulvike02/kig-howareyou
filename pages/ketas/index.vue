@@ -3,86 +3,83 @@ definePageMeta({ layout: "default" });
 
 const options = [
   {
-    title: "Õnnelik",
+    title: "Õnn",
     fill: "#ffaaaa",
-    options: [{ title: "Rahulolev" }, { title: "Roomus" }],
+    options: [
+      {
+        title: "Rahulolev",
+        options: [{ title: "Rahulik" }, { title: "Lõbus" }],
+      },
+      {
+        title: "Uhke",
+        options: [{ title: "Rõõmus" }, { title: "Imetlev" }],
+      },
+    ],
   },
   {
-    title: "Elevil",
+    title: "Elevus",
     fill: "yellow",
-    options: [{ title: "Optimistlik" }, { title: "Ergas" }],
+    options: [
+      {
+        title: "Optimistlik",
+        options: [{ title: "Lootusrikas" }, { title: "Ootusärev" }],
+      },
+      {
+        title: "Erutatud",
+        options: [{ title: "Eufooriline" }, { title: "Kergendunud" }],
+      },
+    ],
   },
   {
-    title: "Üllatunud",
+    title: "Üllatus",
     fill: "red",
     options: [{ title: "Segaduses" }, { title: "Kergendunud" }],
   },
   {
-    title: "Mures",
+    title: "Mure",
     fill: "green",
-    options: [{ title: "Ebakindel" }, { title: "Hirmul" }],
+    options: [{ title: "Ebakindel" }, { title: "Kartlik" }],
   },
   {
-    title: "Vihane",
+    title: "Viha",
     fill: "#ffaaaa",
+    options: [{ title: "Ärritunud" }, { title: "Vaenulik" }],
   },
   {
-    title: "Kurb",
+    title: "Kurbus",
     fill: "yellow",
+    options: [{ title: "Ahastus" }, { title: "Valu" }],
   },
   {
-    title: "Hooliv",
+    title: "Hoolivus",
     fill: "red",
+    options: [{ title: "Murelik" }, { title: "Empaatiline" }],
   },
   {
-    title: "Armastav",
+    title: "Armastus",
     fill: "green",
+    options: [{ title: "Iha" }, { title: "Kirglik" }],
   },
 ];
 
 const options2 = options
-  .map((o) => o.options || [{ title: "Some" }, { title: "Thing" }])
+  .map((o) => o.options || [{ title: "..." }, { title: "..." }])
   .flat();
 
-const options3 = options2
-  .map((o) => [{ title: "Some" }, { title: "Thing" }])
-  .flat();
+const options3 = options
+  .map((o) =>
+    (o.options || []).map(
+      (o2) => o2.options || [{ title: "..." }, { title: "..." }]
+    )
+  )
+  .flat(Infinity);
 
-const options4 = [
-  {
-    title: "Happy",
-    fill: "#2F4E3E",
-    icon: "https://api.iconify.design/iconoir:emoji-look-bottom.svg",
-  },
-  {
-    title: "Sad",
-    fill: "#556D73",
-    icon: "https://api.iconify.design/iconoir:emoji-look-bottom.svg",
-  },
-  {
-    title: "Angry",
-    fill: "#252C23",
-    icon: "https://api.iconify.design/iconoir:emoji-look-bottom.svg",
-  },
-  {
-    title: "Anxious",
-    fill: "#3A4240",
-    icon: "https://api.iconify.design/iconoir:emoji-look-bottom.svg",
-  },
-  {
-    title: "Mental block",
-    fill: "#556D73",
-    icon: "https://api.iconify.design/iconoir:emoji-look-bottom.svg",
-  },
-  {
-    title: "Confused",
-    fill: "#3A4240",
-    icon: "https://api.iconify.design/iconoir:emoji-look-bottom.svg",
-  },
-];
-
-const selectedSector = $ref();
-const onSelect = (sector) => (selectedSector = sector);
+const selected1 = $ref();
+const selected2 = $ref();
+const selected3 = $ref();
+const onSelect1 = (sector) => (selected1 = sector);
+const onSelect2 = (sector) => (selected2 = sector);
+const onSelect3 = (sector) => (selected3 = sector);
 </script>
 
 <template>
@@ -90,25 +87,26 @@ const onSelect = (sector) => (selectedSector = sector);
     <div class="p-8">
       <TestWheel>
         <TestSlices
-          @select="onSelect"
+          @select="onSelect1"
           :options="options"
           :inner="0"
           :outer="120"
         />
         <TestSlices
-          @select="onSelect"
+          @select="onSelect2"
           :options="options2"
-          :inner="121"
+          :inner="120"
           :outer="240"
+          :class="[selected1 ? '' : 'blur-xl']"
         />
         <TestSlices
-          @select="onSelect"
+          @select="onSelect3"
           :options="options3"
-          :inner="241"
+          :inner="240"
           :outer="350"
+          :class="[selected2 ? '' : 'blur-xl']"
         />
       </TestWheel>
-      You selected {{ selectedSector?.title }}
     </div>
   </div>
 </template>
