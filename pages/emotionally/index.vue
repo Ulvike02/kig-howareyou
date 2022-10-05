@@ -32,7 +32,7 @@ const onSelect = (sector) => (selected = sector);
 </script>
 <template>
   <div>
-    <img src="/assets/screenshot.jpeg" class="fixed inset-0" />
+    <img src="/assets/Background.jpg" class="fixed inset-0" />
     <CircleWheel :options="options" @select="onSelect" />
     You selected {{ selected?.title }}
   </div>

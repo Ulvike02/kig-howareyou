@@ -86,27 +86,29 @@ const onSelect = (sector) => (selectedSector = sector);
 </script>
 
 <template>
-  <div class="p-8">
-    <TestWheel>
-      <TestSlices
-        @select="onSelect"
-        :options="options"
-        :inner="0"
-        :outer="120"
-      />
-      <TestSlices
-        @select="onSelect"
-        :options="options2"
-        :inner="121"
-        :outer="240"
-      />
-      <TestSlices
-        @select="onSelect"
-        :options="options3"
-        :inner="241"
-        :outer="350"
-      />
-    </TestWheel>
-    You selected {{ selectedSector?.title }}
+  <div class="flex items-center justify-center h-full">
+    <div class="p-8">
+      <TestWheel>
+        <TestSlices
+          @select="onSelect"
+          :options="options"
+          :inner="0"
+          :outer="120"
+        />
+        <TestSlices
+          @select="onSelect"
+          :options="options2"
+          :inner="121"
+          :outer="240"
+        />
+        <TestSlices
+          @select="onSelect"
+          :options="options3"
+          :inner="241"
+          :outer="350"
+        />
+      </TestWheel>
+      You selected {{ selectedSector?.title }}
+    </div>
   </div>
 </template>
