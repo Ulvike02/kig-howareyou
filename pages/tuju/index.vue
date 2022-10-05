@@ -1,68 +1,205 @@
 <script setup>
 definePageMeta({ layout: "default" });
 
-const options = [
+const start = [
   {
-    title: "Õnnelik",
-    fill: "#ffaaaa",
-    icon: "https://api.iconify.design/iconoir:3d-add-hole.svg",
-  },
-  {
-    title: "Elevil",
-    fill: "yellow",
-  },
-  {
-    title: "Üllatunud",
+    title: "?",
     fill: "red",
+    icon: "/assets/smiling-face-with-smiling-eyes.svg",
   },
   {
-    title: "Mures",
-    fill: "green",
-  },
-  {
-    title: "Vihane",
-    fill: "#ffaaaa",
-  },
-  {
-    title: "Kurb",
+    title: "?",
     fill: "yellow",
-  },
-  {
-    title: "Hooliv",
-    fill: "red",
-  },
-  {
-    title: "Armastav",
-    fill: "green",
+    icon: "/assets/smiling-face-with-smiling-eyes.svg",
   },
 ];
 
-const options2 = options
-  .map((o) => o.options || [{ title: "Some" }, { title: "Thing" }])
-  .flat();
+const up = [
+  {
+    title: "?",
+    fill: "#ffaaaa",
+    icon: "/assets/smiling-face-with-smiling-eyes.svg",
+  },
+  {
+    title: "?",
+    fill: "#ffaaaa",
+    icon: "/assets/smiling-face-with-smiling-eyes.svg",
+  },
+  {
+    title: "?",
+    fill: "#ffaaaa",
+    icon: "/assets/smiling-face-with-smiling-eyes.svg",
+  },
+  {
+    title: "?",
+    fill: "#ffaaaa",
+    icon: "/assets/smiling-face-with-smiling-eyes.svg",
+  },
+  {
+    title: "?",
+    fill: "#ffaaaa",
+    icon: "/assets/smiling-face-with-smiling-eyes.svg",
+  },
+  {
+    title: "?",
+    fill: "#ffaaaa",
+    icon: "/assets/smiling-face-with-smiling-eyes.svg",
+  },
+  {
+    title: "?",
+    fill: "#ffaaaa",
+    icon: "/assets/smiling-face-with-smiling-eyes.svg",
+  },
+  {
+    title: "?",
+    fill: "#ffaaaa",
+    icon: "/assets/smiling-face-with-smiling-eyes.svg",
+  },
+];
 
-const options3 = options2
-  .map((o) => [{ title: "Some" }, { title: "Thing" }])
-  .flat();
+const up2 = [
+  {
+    title: "?",
+    fill: "#ffaaaa",
+    icon: "/assets/smiling-face-with-smiling-eyes.svg",
+  },
+  {
+    title: "?",
+    fill: "#ffaaaa",
+    icon: "/assets/smiling-face-with-smiling-eyes.svg",
+  },
+  {
+    title: "?",
+    fill: "#ffaaaa",
+    icon: "/assets/smiling-face-with-smiling-eyes.svg",
+  },
+  {
+    title: "?",
+    fill: "#ffaaaa",
+    icon: "/assets/smiling-face-with-smiling-eyes.svg",
+  },
+];
 
-const selectedSector = $ref();
-const onSelect = (sector) => (selectedSector = sector);
+const down = [
+  {
+    title: "?",
+    fill: "#ffaaaa",
+    icon: "/assets/smiling-face-with-smiling-eyes.svg",
+  },
+  {
+    title: "?",
+    fill: "#ffaaaa",
+    icon: "/assets/smiling-face-with-smiling-eyes.svg",
+  },
+  {
+    title: "?",
+    fill: "#ffaaaa",
+    icon: "/assets/smiling-face-with-smiling-eyes.svg",
+  },
+  {
+    title: "?",
+    fill: "#ffaaaa",
+    icon: "/assets/smiling-face-with-smiling-eyes.svg",
+  },
+  {
+    title: "?",
+    fill: "#ffaaaa",
+    icon: "/assets/smiling-face-with-smiling-eyes.svg",
+  },
+  {
+    title: "?",
+    fill: "#ffaaaa",
+    icon: "/assets/smiling-face-with-smiling-eyes.svg",
+  },
+  {
+    title: "?",
+    fill: "#ffaaaa",
+    icon: "/assets/smiling-face-with-smiling-eyes.svg",
+  },
+  {
+    title: "?",
+    fill: "#ffaaaa",
+    icon: "/assets/smiling-face-with-smiling-eyes.svg",
+  },
+];
+
+const down2 = [
+  {
+    title: "?",
+    fill: "#ffaaaa",
+    icon: "/assets/smiling-face-with-smiling-eyes.svg",
+  },
+  {
+    title: "?",
+    fill: "#ffaaaa",
+    icon: "/assets/smiling-face-with-smiling-eyes.svg",
+  },
+  {
+    title: "?",
+    fill: "#ffaaaa",
+    icon: "/assets/smiling-face-with-smiling-eyes.svg",
+  },
+  {
+    title: "?",
+    fill: "#ffaaaa",
+    icon: "/assets/smiling-face-with-smiling-eyes.svg",
+  },
+];
 </script>
 
 <template>
-  <div class="flex items-center justify-center h-full">
+  <div class="">
     <div>
+      <div>Start</div>
       <TestWheel>
         <TestSlices
-          @select="onSelect"
-          :options="options"
+          :options="start"
           :inner="50"
           :outer="150"
           :corner="5"
           :padding="2"
         />
       </TestWheel>
-      You selected {{ selectedSector?.title }}
+      <div>Up</div>
+      <TestWheel>
+        <TestSlices
+          :options="up"
+          :inner="50"
+          :outer="150"
+          :corner="5"
+          :padding="2"
+        />
+      </TestWheel>
+      <div>Up2</div>
+      <TestWheel>
+        <TestSlices
+          :options="up2"
+          :inner="50"
+          :outer="150"
+          :corner="5"
+          :padding="2"
+        />
+      </TestWheel>
+      <div>Down</div>
+      <TestWheel>
+        <TestSlices
+          :options="down"
+          :inner="50"
+          :outer="150"
+          :corner="5"
+          :padding="2"
+        />
+      </TestWheel>
+      <div>Down2</div>
+      <TestWheel>
+        <TestSlices
+          :options="down2"
+          :inner="50"
+          :outer="150"
+          :corner="5"
+          :padding="2"
+        />
+      </TestWheel>
     </div>
   </div>
 </template>
