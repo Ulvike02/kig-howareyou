@@ -1,11 +1,10 @@
 <template>
-  <div>
-    <!-- <img src="/assets/screenshot.jpeg" class="fixed inset-0 w-16" /> -->
-    <div class="bg-black/60 border fixed inset-0">aaa</div>
-    <div
-      class="text-red fixed right-0 left-0 m-4 p-4 rounded-2xl bg-white h-48 shadow-2xl"
-    >
-      <slot></slot>
+  <div class="relative h-screen">
+    <slot></slot>
+    <div class="fixed top-2 right-2 flex gap-2 text-gray-400">
+      <NuxtLink to="/emotionally">Emotionally</NuxtLink>
+      <NuxtLink to="/tuju">Tuju</NuxtLink>
+      <NuxtLink to="/ketas">Ketas</NuxtLink>
     </div>
   </div>
 </template>
