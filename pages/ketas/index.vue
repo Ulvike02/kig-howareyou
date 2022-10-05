@@ -65,8 +65,12 @@ const options3 = options
   )
   .flat(Infinity);
 
-const selectedSector = $ref();
-const onSelect = (sector) => (selectedSector = sector);
+const selected1 = $ref();
+const selected2 = $ref();
+const selected3 = $ref();
+const onSelect1 = (sector) => (selected1 = sector);
+const onSelect2 = (sector) => (selected2 = sector);
+const onSelect3 = (sector) => (selected3 = sector);
 </script>
 
 <template>
@@ -74,25 +78,26 @@ const onSelect = (sector) => (selectedSector = sector);
     <div class="p-8">
       <TestWheel>
         <TestSlices
-          @select="onSelect"
+          @select="onSelect1"
           :options="options"
           :inner="0"
           :outer="120"
         />
         <TestSlices
-          @select="onSelect"
+          @select="onSelect2"
           :options="options2"
-          :inner="121"
+          :inner="120"
           :outer="240"
+          :class="[selected1 ? '' : 'blur-xl']"
         />
         <TestSlices
-          @select="onSelect"
+          @select="onSelect3"
           :options="options3"
-          :inner="241"
+          :inner="240"
           :outer="350"
+          :class="[selected2 ? '' : 'blur-xl']"
         />
       </TestWheel>
-      You selected {{ selectedSector?.title }}
     </div>
   </div>
 </template>
