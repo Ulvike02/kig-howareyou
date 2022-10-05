@@ -23,7 +23,7 @@ const up = [
   {
     title: "",
     fill: "#ffaaaa",
-    icon: "/assets/ssmiling-face-with-open-mouth-and-smiling-eyesg",
+    icon: "/assets/smiling-face-with-open-mouth-and-smiling-eyesg",
   },
   {
     title: "",
