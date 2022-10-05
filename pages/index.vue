@@ -48,7 +48,7 @@ const options3 = options2
   .map((o) => [{ title: "Some" }, { title: "Thing" }])
   .flat();
 
-const options3 = [
+const options4 = [
   {
     title: "Happy",
     fill: "#2F4E3E",
@@ -90,7 +90,7 @@ const onSelect = (sector) => (selectedSector = sector);
     class="flex items-center justify-center border-4 border-red-500 text-red-400 h-full"
   >
     <div>
-      <MummuWheel @select="onSelect" :options="options3" />
+      <MummuWheel @select="onSelect" :options="options" />
       <!-- <EmojiWheel @select="onSelect" :options="options1" /> -->
       <!-- <EmojiWheel @select="onSelect" :options="options2" /> -->
       <TestWheel>

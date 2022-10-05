@@ -1,18 +1,37 @@
 <script setup>
-const items = range(0, 180, 180 / 6).map((i) => polar(i, 50));
+const options = [
+  {
+    title: "Tired",
+    fill: "#2F4E3E",
+  },
+  {
+    title: "Sad",
+    fill: "#556D73",
+  },
+  {
+    title: "Angry",
+    fill: "#252C23",
+  },
+  {
+    title: "Anxious",
+    fill: "#3A4240",
+  },
+  {
+    title: "Mental block",
+    fill: "#556D73",
+  },
+  {
+    title: "Confused",
+    fill: "#3A4240",
+  },
+];
+
+const selected = $ref();
+const onSelect = (sector) => (selected = sector);
 </script>
 <template>
-  <div class="relative border-4 border-red-500 m-32">
-    <div>Some content here</div>
-    <div
-      v-for="(item, i) in items"
-      class="w-10 rounded-full h-10 absolute bg-black text-white grid place-items-center text-center -translate-x-5 -translate-y-5"
-      :style="{
-        left: item.x / 1.2 + 'px',
-        top: i * 50 + 'px',
-      }"
-    >
-      {{ i }}
-    </div>
+  <div>
+    <CircleWheel :options="options" @select="onSelect" />
+    You selected {{ selected?.title }}
   </div>
 </template>
