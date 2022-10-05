@@ -1,53 +1,52 @@
 <script setup>
 definePageMeta({ layout: "default" });
 
-const options1 = [
+const options = [
   {
-    title: "First",
+    title: "Õnnelik",
     fill: "#ffaaaa",
+    options: [{ title: "Rahulolev" }, { title: "Roomus" }],
   },
   {
-    title: "Happy",
+    title: "Elevil",
     fill: "yellow",
+    options: [{ title: "Optimistlik" }, { title: "Ergas" }],
   },
   {
-    title: "Sad",
+    title: "Üllatunud",
     fill: "red",
+    options: [{ title: "Segaduses" }, { title: "Kergendunud" }],
   },
   {
-    title: "Green",
+    title: "Mures",
     fill: "green",
+    options: [{ title: "Ebakindel" }, { title: "Hirmul" }],
   },
   {
-    title: "First",
+    title: "Vihane",
     fill: "#ffaaaa",
   },
   {
-    title: "Happy",
+    title: "Kurb",
     fill: "yellow",
   },
   {
-    title: "Sad",
+    title: "Hooliv",
     fill: "red",
   },
   {
-    title: "Green",
+    title: "Armastav",
     fill: "green",
   },
 ];
 
-const options2 = [
-  {
-    title: "Sad",
-    fill: "red",
-    icon: "https://api.iconify.design/iconoir:emoji-look-bottom.svg",
-  },
-  {
-    title: "Green",
-    fill: "green",
-    icon: "https://api.iconify.design/iconoir:emoji-look-bottom.svg",
-  },
-];
+const options2 = options
+  .map((o) => o.options || [{ title: "Some" }, { title: "Thing" }])
+  .flat();
+
+const options3 = options2
+  .map((o) => [{ title: "Some" }, { title: "Thing" }])
+  .flat();
 
 const options3 = [
   {
@@ -94,6 +93,26 @@ const onSelect = (sector) => (selectedSector = sector);
       <MummuWheel @select="onSelect" :options="options3" />
       <!-- <EmojiWheel @select="onSelect" :options="options1" /> -->
       <!-- <EmojiWheel @select="onSelect" :options="options2" /> -->
+      <TestWheel>
+        <TestSlices
+          @select="onSelect"
+          :options="options"
+          :inner="0"
+          :outer="120"
+        />
+        <TestSlices
+          @select="onSelect"
+          :options="options2"
+          :inner="121"
+          :outer="240"
+        />
+        <TestSlices
+          @select="onSelect"
+          :options="options3"
+          :inner="241"
+          :outer="350"
+        />
+      </TestWheel>
       You selected {{ selectedSector?.title }}
     </div>
   </div>
