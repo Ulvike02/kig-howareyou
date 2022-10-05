@@ -23,7 +23,7 @@ const sectors = options.map((option, i) => {
     padding
   );
   const point = polar(currentAngle + sector / 2, sectorMiddleRadius);
-  const fill = hsl(currentAngle, 100, 50);
+  const fill = option.fill || hsl(currentAngle, 100, 50);
   const flip = currentAngle >= 90 && currentAngle < 270;
   const transform = [
     rotate(currentAngle + sector / 2 - 90),
