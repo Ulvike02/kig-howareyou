@@ -8,18 +8,27 @@ const options = [
     options: [
       {
         title: "Rahulolev",
-        options: [{ title: "Eriti rahulolev" }, { title: "Mega rahulolev" }],
+        options: [{ title: "Rahulik" }, { title: "Lõbus" }],
       },
       {
         title: "Uhke",
-        options: [{ title: "Eriti uhke" }, { title: "Mega uhke" }],
+        options: [{ title: "Rõõmus" }, { title: "Imetlev" }],
       },
     ],
   },
   {
     title: "Elevus",
     fill: "yellow",
-    options: [{ title: "Optimistlik" }, { title: "Erutatud" }],
+    options: [
+    { 
+      title: "Optimistlik",
+      options: [{ title: "Lootusrikas" }, { title: "Ootusärev }],
+      },
+      {
+      title: "Erutatud",
+      options: [{ title: "Eufooriline" }, { title: "Kergendunud" }],
+      },
+    ],
   },
   {
     title: "Üllatus",
