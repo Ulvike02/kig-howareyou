@@ -4,6 +4,7 @@
 <script setup>
   import { arc } from "d3";
   
+  const { options } = defineProps(["options"]);
   defineEmits(["select"]);
   
   const rotate = (deg) => `rotate(${deg})`;
