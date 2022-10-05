@@ -20,13 +20,13 @@ const options = [
     title: "Elevus",
     fill: "yellow",
     options: [
-    { 
-      title: "Optimistlik",
-      options: [{ title: "Lootusrikas" }, { title: "Ootusärev }],
+      {
+        title: "Optimistlik",
+        options: [{ title: "Lootusrikas" }, { title: "Ootusärev" }],
       },
       {
-      title: "Erutatud",
-      options: [{ title: "Eufooriline" }, { title: "Kergendunud" }],
+        title: "Erutatud",
+        options: [{ title: "Eufooriline" }, { title: "Kergendunud" }],
       },
     ],
   },

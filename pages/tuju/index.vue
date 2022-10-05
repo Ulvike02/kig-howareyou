@@ -10,7 +10,7 @@ const start = [
   {
     title: "Elevil",
     fill: "yellow",
-    icon: "https://api.iconify.design/iconoir:3d-add-hole.svg",
+    icon: "/assets/smiling-face-with-smiling-eyes.svg",
   },
 ];
 
