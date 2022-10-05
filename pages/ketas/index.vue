@@ -5,7 +5,16 @@ const options = [
   {
     title: "Õnn",
     fill: "#ffaaaa",
-    options: [{ title: "Rahulolev" }, { title: "Uhke" }],
+    options: [
+      {
+        title: "Rahulolev",
+        options: [{ title: "Eriti rahulolev" }, { title: "Mega rahulolev" }],
+      },
+      {
+        title: "Uhke",
+        options: [{ title: "Eriti uhke" }, { title: "Mega uhke" }],
+      },
+    ],
   },
   {
     title: "Elevus",
@@ -45,13 +54,16 @@ const options = [
 ];
 
 const options2 = options
-  .map((o) => o.options || [{ title: "Some" }, { title: "Thing" }])
+  .map((o) => o.options || [{ title: "..." }, { title: "..." }])
   .flat();
 
-const options3 = options2
-  .map((o) => [{ title: "Some" }, { title: "Thing" }])
-  .flat();
-
+const options3 = options
+  .map((o) =>
+    (o.options || []).map(
+      (o2) => o2.options || [{ title: "..." }, { title: "..." }]
+    )
+  )
+  .flat(Infinity);
 
 const selectedSector = $ref();
 const onSelect = (sector) => (selectedSector = sector);
