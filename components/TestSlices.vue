@@ -66,14 +66,13 @@ const sectors = options.map((option, i) => {
         :y="sector.point.y"
         :href="sector.icon"
         :transform-origin="sector.point.x + ' ' + sector.point.y"
-        transform="scale(1.5) translate(-8,-8)"
+        transform="scale(1) translate(-12,-12)"
       />
       <text
-        v-else
         style="pointer-events: none"
         dominant-baseline="middle"
         text-anchor="middle"
-        :transform="sector.transform"
+        :transform="[sector.transform, 'translate(20,0)'].join()"
       >
         {{ sector.title }}
       </text>
